@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kevin Benítez – Cloud & Infrastructure</title>
+<meta name="description" content="Cloud & Infrastructure Engineer focused on AWS, Terraform, and networking. AWS Certified Solutions Architect Associate.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Syne:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0a0d0f;--bg2:#111417;
+  --border:rgba(255,255,255,0.07);--border2:rgba(255,255,255,0.12);
+  --text:#e8eaed;--muted:#6b7280;
+  --accent:#00d9a3;--accent2:#0ea5e9;--accent3:#f59e0b;
+  --mono:'JetBrains Mono',monospace;--sans:'Syne',sans-serif;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--mono);font-size:14px;line-height:1.7;min-height:100vh}
+.scanline{position:fixed;top:0;left:0;width:100%;height:100%;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,0.03) 2px,rgba(0,0,0,0.03) 4px);pointer-events:none;z-index:0}
+nav{position:sticky;top:0;z-index:100;background:rgba(10,13,15,0.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:52px}
+.nav-logo{font-family:var(--mono);font-size:13px;font-weight:500;color:var(--accent);letter-spacing:0.05em;text-decoration:none}
+.nav-logo span{color:var(--muted)}
+.nav-links{display:flex;gap:1.5rem}
+.nav-links a{font-size:12px;color:var(--muted);text-decoration:none;letter-spacing:0.08em;text-transform:uppercase;transition:color 0.2s;cursor:pointer}
+.nav-links a:hover{color:var(--accent)}
+.container{max-width:860px;margin:0 auto;padding:0 2rem;position:relative;z-index:1}
+.hero{padding:5rem 0 4rem;border-bottom:1px solid var(--border)}
+.hero-prompt{font-size:12px;color:var(--accent);margin-bottom:1.5rem;display:flex;align-items:center;gap:0.5rem}
+.hero-prompt::before{content:'❯'}
+.hero h1{font-family:var(--sans);font-size:clamp(2.2rem,5vw,3.5rem);font-weight:800;line-height:1.1;letter-spacing:-0.02em;margin-bottom:0.75rem}
+.hero h1 .highlight{color:var(--accent)}
+.hero-title{font-family:var(--mono);font-size:14px;color:var(--muted);margin-bottom:1.5rem;display:flex;align-items:center;gap:0.75rem}
+.hero-title::before{content:'';display:inline-block;width:24px;height:1px;background:var(--accent2)}
+.hero-bio{font-size:14px;color:#9ca3af;max-width:560px;line-height:1.8;margin-bottom:2rem}
+.hero-cta{display:flex;gap:1rem;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:0.5rem;padding:0.6rem 1.2rem;border-radius:4px;font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;text-decoration:none;cursor:pointer;transition:all 0.2s;border:1px solid}
+.btn-primary{background:var(--accent);color:#0a0d0f;border-color:var(--accent)}
+.btn-primary:hover{background:transparent;color:var(--accent)}
+.btn-secondary{background:transparent;color:var(--text);border-color:var(--border2)}
+.btn-secondary:hover{border-color:var(--accent2);color:var(--accent2)}
+section{padding:3.5rem 0;border-bottom:1px solid var(--border)}
+.section-label{font-size:11px;color:var(--accent);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:2rem;display:flex;align-items:center;gap:0.75rem}
+.section-label::after{content:'';flex:1;height:1px;background:var(--border)}
+.exp-list{display:flex;flex-direction:column}
+.exp-item{display:grid;grid-template-columns:2px 1fr;gap:0 1.5rem}
+.exp-line{display:flex;flex-direction:column;align-items:center}
+.exp-dot{width:8px;height:8px;border-radius:50%;border:1.5px solid var(--accent);background:var(--bg);margin-top:4px;flex-shrink:0;position:relative;left:-3px}
+.exp-dot.active{background:var(--accent)}
+.exp-connector{flex:1;width:1.5px;background:var(--border2);margin-top:4px}
+.exp-content{padding-bottom:2.5rem}
+.exp-item:last-child .exp-content{padding-bottom:0}
+.exp-item:last-child .exp-connector{display:none}
+.exp-header{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:0.25rem;margin-bottom:0.25rem}
+.exp-role{font-family:var(--sans);font-size:15px;font-weight:700;color:var(--text)}
+.exp-company{font-size:12px;color:var(--accent);font-weight:500}
+.exp-date{font-size:11px;color:var(--muted)}
+.exp-bullets{list-style:none;margin-top:0.75rem;display:flex;flex-direction:column;gap:0.4rem}
+.exp-bullets li{font-size:13px;color:#9ca3af;display:flex;gap:0.75rem}
+.exp-bullets li::before{content:'▸';color:var(--accent);flex-shrink:0;font-size:10px;margin-top:3px}
+.exp-tag{display:inline-block;font-size:10px;padding:0.15rem 0.5rem;border-radius:3px;background:rgba(0,217,163,0.08);border:1px solid rgba(0,217,163,0.2);color:var(--accent);margin-top:0.6rem;margin-right:0.3rem}
+.projects-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+@media(max-width:600px){.projects-grid{grid-template-columns:1fr}}
+.project-card{background:var(--bg2);border:1px solid var(--border);border-radius:6px;padding:1.25rem;transition:border-color 0.2s,transform 0.2s;position:relative;overflow:hidden;text-decoration:none;display:block;color:inherit}
+.project-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--accent2));opacity:0;transition:opacity 0.2s}
+.project-card:hover{border-color:var(--border2);transform:translateY(-2px)}
+.project-card:hover::before{opacity:1}
+.project-title{font-family:var(--sans);font-size:14px;font-weight:700;margin-bottom:0.5rem;color:var(--text)}
+.project-desc{font-size:12px;color:var(--muted);line-height:1.7;margin-bottom:1rem}
+.project-tags{display:flex;flex-wrap:wrap;gap:0.4rem}
+.project-tag{font-size:10px;font-weight:500;letter-spacing:0.05em;padding:0.2rem 0.55rem;background:rgba(255,255,255,0.04);border:1px solid var(--border2);border-radius:3px;color:var(--muted)}
+.edu-card{background:var(--bg2);border:1px solid var(--border);border-radius:6px;padding:1.25rem 1.5rem;display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:0.5rem}
+.edu-degree{font-family:var(--sans);font-size:15px;font-weight:700}
+.edu-school{font-size:12px;color:var(--accent2);margin-top:2px}
+.edu-spec{font-size:12px;color:var(--muted);margin-top:4px}
+.edu-year{font-size:12px;color:var(--muted)}
+.cert-section{display:flex;align-items:center;gap:2.5rem;flex-wrap:wrap}
+.cert-badge-wrap{display:flex;flex-direction:column;align-items:center}
+.cert-badge-img{width:120px;height:120px;object-fit:contain}
+.cert-divider{width:1px;height:80px;background:var(--border);flex-shrink:0}
+.cert-info{flex:1;min-width:200px}
+.cert-info-title{font-family:var(--sans);font-size:16px;font-weight:700;margin-bottom:0.35rem}
+.cert-info-sub{font-size:12px;color:var(--muted)}
+.cert-verify{display:inline-flex;align-items:center;gap:0.4rem;margin-top:0.75rem;font-size:11px;color:var(--accent2);text-decoration:none;border:1px solid rgba(14,165,233,0.25);padding:0.3rem 0.75rem;border-radius:3px;transition:background 0.2s}
+.cert-verify:hover{background:rgba(14,165,233,0.08)}
+.skills-group{display:flex;flex-direction:column;gap:1.5rem}
+.skills-row-label{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:0.5rem}
+.skills-badges{display:flex;flex-wrap:wrap;gap:0.5rem}
+.skill-badge{display:inline-flex;align-items:center;gap:0.5rem;padding:0.4rem 0.85rem;border-radius:4px;font-size:12px;font-weight:500;border:1px solid;transition:transform 0.15s;font-family:var(--mono)}
+.skill-badge:hover{transform:translateY(-1px)}
+.skill-badge img,.skill-badge svg{width:16px;height:16px;object-fit:contain;flex-shrink:0}
+.sb-green{background:rgba(0,217,163,0.08);border-color:rgba(0,217,163,0.25);color:var(--accent)}
+.sb-blue{background:rgba(14,165,233,0.08);border-color:rgba(14,165,233,0.25);color:var(--accent2)}
+.sb-amber{background:rgba(245,158,11,0.08);border-color:rgba(245,158,11,0.25);color:var(--accent3)}
+.sb-gray{background:rgba(255,255,255,0.04);border-color:var(--border2);color:#9ca3af}
+footer{padding:2.5rem 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.footer-text{font-size:11px;color:var(--muted)}
+.footer-text span{color:var(--accent)}
+.social-links{display:flex;gap:1rem}
+.social-links a{font-size:11px;color:var(--muted);text-decoration:none;letter-spacing:0.08em;text-transform:uppercase;transition:color 0.2s}
+.social-links a:hover{color:var(--accent)}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+.cursor{animation:blink 1s step-end infinite;color:var(--accent)}
+</style>
+</head>
+<body>
+<div class="scanline"></div>
+
+<nav>
+  <a class="nav-logo" href="#">~/kevin-benitez</a>
+  <div class="nav-links">
+    <a onclick="document.getElementById('experience').scrollIntoView({behavior:'smooth'});return false;">exp</a>
+    <a onclick="document.getElementById('projects').scrollIntoView({behavior:'smooth'});return false;">projects</a>
+    <a onclick="document.getElementById('education').scrollIntoView({behavior:'smooth'});return false;">edu</a>
+    <a onclick="document.getElementById('certs').scrollIntoView({behavior:'smooth'});return false;">certs</a>
+    <a onclick="document.getElementById('skills').scrollIntoView({behavior:'smooth'});return false;">skills</a>
+  </div>
+</nav>
+
+<div class="container">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-prompt">whoami<span class="cursor">_</span></div>
+    <h1>Kevin <span class="highlight">Benítez</span></h1>
+    <div class="hero-title">Cloud & Infrastructure</div>
+    <p class="hero-bio">
+      Telecommunications engineer who decided that building the network was more interesting than using it.
+      Focused on cloud infrastructure and networking — designing systems that are solid, well-architected,
+      and actually hold up when things get real.
+    </p>
+    <div class="hero-cta">
+      <a href="http://www.linkedin.com/in/kevin-b-693258292" class="btn btn-primary" target="_blank">↗ LinkedIn</a>
+      <a href="https://github.com/kbenitez29" class="btn btn-secondary" target="_blank">↗ GitHub</a>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="section-label">// experience</div>
+    <div class="exp-list">
+
+      <div class="exp-item">
+        <div class="exp-line"><div class="exp-dot active"></div><div class="exp-connector"></div></div>
+        <div class="exp-content">
+          <div class="exp-header">
+            <div><div class="exp-role">System Administrator</div><div class="exp-company">El Ranchito</div></div>
+            <div class="exp-date">Dec 2024 – Jan 2026</div>
+          </div>
+          <ul class="exp-bullets">
+            <li>Kept a hybrid mess of Windows and Linux servers alive — on-prem, cloud, and everything awkwardly in between.</li>
+            <li>Got tired of doing the same thing twice, so automated it — deployments, routine ops, all of it via Ansible, scripting, etc.</li>
+            <li>Babysat AWS resources in production: EC2, S3, IAM — the holy trinity of "whose fault is this access error"</li>
+            <li>Monitored infrastructure around the clock so outages stayed hypothetical. Mostly.</li>
+            <li>Spent quality time with ping, traceroute, and Wireshark to chase down poltergeists across the local network — usually tracking them back to a loop in the switch, or (shocker) DNS. It's always DNS.</li>
+            <li>Coordinated with international teams across timezones because apparently problems don't respect business hours.</li>
+          </ul>
+          <div><span class="exp-tag">AWS</span><span class="exp-tag">Ansible</span><span class="exp-tag">Linux</span><span class="exp-tag">Hybrid Infra</span><span class="exp-tag">Networking</span></div>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-line"><div class="exp-dot"></div><div class="exp-connector"></div></div>
+        <div class="exp-content">
+          <div class="exp-header">
+            <div><div class="exp-role">Monitoring Engineer</div><div class="exp-company">Ayscom · Madrid</div></div>
+            <div class="exp-date">May – Sep 2024</div>
+          </div>
+          <ul class="exp-bullets">
+            <li>Watched live telecom networks so that nobody's call drops — no pressure, just millions of users.</li>
+            <li>Built KPI dashboards tracking QoS and QoE metrics so the important graphs always went up and to the right.</li>
+            <li>Handled incidents end-to-end — Grafana says something's on fire, you find out what and fix it, fast.</li>
+          </ul>
+          <div><span class="exp-tag">Grafana</span><span class="exp-tag">Telecom Networks</span><span class="exp-tag">KPIs</span></div>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-line"><div class="exp-dot"></div><div class="exp-connector"></div></div>
+        <div class="exp-content">
+          <div class="exp-header">
+            <div><div class="exp-role">Engineer Intern</div><div class="exp-company">Crambo</div></div>
+            <div class="exp-date">Sep 2022 – Mar 2023</div>
+          </div>
+          <ul class="exp-bullets">
+            <li>Wrote scripts and built GUIs to control A/V hardware via APIs — because physical buttons are apparently too easy.</li>
+            <li>Designed signal distribution diagrams for matrix controllers, making sure the right audio went to the right place (most of the time).</li>
+          </ul>
+          <div><span class="exp-tag">Scripting</span><span class="exp-tag">API Integration</span><span class="exp-tag">A/V Systems</span></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="section-label">// projects</div>
+    <div class="projects-grid">
+
+      <a class="project-card" href="https://github.com/kbenitez29/AWS-Containerized" target="_blank">
+        <div class="project-title"style="text-align: center;">Containerized App</div>
+        <p class="project-desc">End-to-end containerized web app on AWS ECS Fargate — production VPC, ECR, load balancing and full CI/CD pipeline. Zero manual deploys.</p>
+        <div class="project-tags">
+          <span class="project-tag">Terraform</span><span class="project-tag">ECS Fargate</span>
+          <span class="project-tag">Docker</span><span class="project-tag">ECR</span><span class="project-tag">AWS</span>
+          <span class="project-tag">ALB</span><span class="project-tag">GitHub Actions</span>
+        </div>
+      </a>
+
+      <a class="project-card" href="https://github.com/kbenitez29/AWS-Webapp-project" target="_blank">
+        <div class="project-title" style="text-align: center;">Infrastructure Automation</div>
+        <p class="project-desc">AWS web environment built entirely in code — VPC, subnets, security groups, EC2 bootstrapped on first boot. No console, no manual steps, no excuses.</p>
+        <div class="project-tags">
+          <span class="project-tag">Terraform</span><span class="project-tag">AWS</span>
+          <span class="project-tag">EC2</span><span class="project-tag">VPC</span>
+          <span class="project-tag">IaC</span>
+        </div>
+      </a>
+
+      <a class="project-card" href="https://github.com/kbenitez29" target="_blank">
+        <div class="project-title" style="text-align: center;">Portfolio</div>
+        <p class="project-desc">This site. S3 bucket, CloudFront distribution, IAM locked down — provisioned with Terraform from a blank AWS account. Eating my own cooking.</p>
+        <div class="project-tags">
+          <span class="project-tag">S3</span><span class="project-tag">CloudFront</span>
+          <span class="project-tag">Terraform</span><span class="project-tag">IAM</span><span class="project-tag">AWS</span>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education">
+    <div class="section-label">// education</div>
+    <div class="edu-card">
+      <div>
+        <div class="edu-degree">Bachelor's in Telecommunications Engineering</div>
+        <div class="edu-school">Universidad Rey Juan Carlos, Madrid</div>
+        <div class="edu-spec">Specialization in Image and Sound</div>
+      </div>
+      <div class="edu-year">2018 – 2023</div>
+    </div>
+  </section>
+
+  <!-- CERTIFICATIONS -->
+  <section id="certs">
+    <div class="section-label">// certifications</div>
+    <div class="cert-section">
+      <div class="cert-badge-wrap">
+        <img
+          class="cert-badge-img"
+          src="https://images.credly.com/images/0e284c3f-5164-4b21-8660-0d84737941bc/image.png"
+          alt="AWS Certified Solutions Architect Associate badge"
+          onerror="this.style.display='none';document.getElementById('badge-fallback').style.display='block'"
+        />
+        <!-- SVG fallback in case Credly is unreachable -->
+        <div id="badge-fallback" style="display:none;width:120px;height:120px">
+          <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+            <polygon points="60,4 112,32 112,88 60,116 8,88 8,32" fill="#232F3E" stroke="#00d9a3" stroke-width="2"/>
+            <polygon points="60,12 104,36 104,84 60,108 16,84 16,36" fill="#1a2332"/>
+            <text x="60" y="46" text-anchor="middle" fill="#FF9900" font-size="9" font-family="monospace" font-weight="bold">aws</text>
+            <text x="60" y="57" text-anchor="middle" fill="#FF9900" font-size="7" font-family="monospace">certified</text>
+            <line x1="30" y1="61" x2="90" y2="61" stroke="#444" stroke-width="0.8"/>
+            <text x="60" y="74" text-anchor="middle" fill="white" font-size="10" font-family="monospace" font-weight="bold">Solutions</text>
+            <text x="60" y="85" text-anchor="middle" fill="white" font-size="10" font-family="monospace" font-weight="bold">Architect</text>
+            <line x1="30" y1="90" x2="90" y2="90" stroke="#444" stroke-width="0.8"/>
+            <text x="60" y="101" text-anchor="middle" fill="#aaa" font-size="7.5" font-family="monospace" letter-spacing="1">ASSOCIATE</text>
+          </svg>
+        </div>
+      </div>
+      <div class="cert-divider"></div>
+      <div class="cert-info">
+        <div class="cert-info-title">AWS Certified Solutions Architect – Associate</div>
+        <div class="cert-info-sub">Amazon Web Services · Issued Mar 2026 · Valid until Mar 2030</div>
+        <a class="cert-verify" href="https://www.credly.com/badges/21e5c34e-ebf4-4e5c-9533-5101f0924168" target="_blank">↗ Verify on Credly</a>
+      </div>
+    </div>
+  </section>
+
+ <!-- SKILLS -->
+ <section id="skills" style="border-bottom:none">
+    <div class="section-label">// skills & tools</div>
+    <div class="skills-group">
+ 
+      <div>
+        <div class="skills-row-label">Cloud Platforms</div>
+        <div class="skills-badges">
+          <span class="skill-badge sb-green">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" alt="AWS">
+            AWS
+          </span>
+          <span class="skill-badge sb-blue">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg" alt="Azure">
+            Azure
+          </span>
+        </div>
+      </div>
+ 
+      <div>
+        <div class="skills-row-label">Infrastructure and Automation</div>
+        <div class="skills-badges">
+          <span class="skill-badge sb-blue">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/terraform/terraform-original.svg" alt="Terraform">
+            Terraform
+          </span>
+          <span class="skill-badge sb-blue">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ansible/ansible-original.svg" alt="Ansible">
+            Ansible
+          </span>
+          <span class="skill-badge sb-blue">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg" alt="Kubernetes">
+            Kubernetes
+          </span>
+        </div>
+      </div>
+ 
+      <div>
+        <div class="skills-row-label">Containers & Compute</div>
+        <div class="skills-badges">
+          <span class="skill-badge sb-blue">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker">
+            Docker
+          </span>
+          <span class="skill-badge sb-gray">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" alt="Linux">
+            Linux
+          </span>
+          <span class="skill-badge sb-gray">
+            <!-- Windows logo SVG -->
+            <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" style="width:16px;height:16px">
+              <rect x="4" y="4" width="19" height="19" rx="2" fill="#f35325"/>
+              <rect x="25" y="4" width="19" height="19" rx="2" fill="#81bc06"/>
+              <rect x="4" y="25" width="19" height="19" rx="2" fill="#05a6f0"/>
+              <rect x="25" y="25" width="19" height="19" rx="2" fill="#ffba08"/>
+            </svg>
+            Windows Server
+          </span>
+        </div>
+      </div>
+ 
+      <div>
+        <div class="skills-row-label">Networking & Observability</div>
+        <div class="skills-badges">
+          <span class="skill-badge sb-amber">TCP/IP · Routing · Switching</span>
+          <span class="skill-badge sb-amber">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/grafana/grafana-original.svg" alt="Grafana">
+            Grafana
+          </span>
+          <span class="skill-badge sb-amber">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/prometheus/prometheus-original.svg" alt="Prometheus">
+            Prometheus
+          </span>
+        </div>
+      </div>
+ 
+      <div>
+        <div class="skills-row-label">Scripting & Version Control</div>
+        <div class="skills-badges">
+          <span class="skill-badge sb-gray">Bash / PowerShell</span>
+          <span class="skill-badge sb-gray">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python">
+            Python
+          </span>
+          <span class="skill-badge sb-gray">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git">
+            Git
+          </span>
+          <span class="skill-badge sb-gray">
+            <svg viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="width:16px;height:16px">
+              <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
+            </svg>
+            GitHub
+          </span>
+        </div>
+      </div>
+ 
+    </div>
+  </section>
+ 
+  <footer>
+    <div class="footer-text">Built with <span>Terraform · S3 · CloudFront</span> · © 2026 Kevin Benítez</div>
+    <div class="social-links">
+      <a href="https://www.linkedin.com/in/kevin-b-693258292" target="_blank">LinkedIn</a>
+      <a href="https://github.com/kbenitez29" target="_blank">GitHub</a>
+    </div>
+  </footer>
+ 
+</div>
+</body>
+</html>
+ 
