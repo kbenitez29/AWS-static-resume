@@ -1,4 +1,4 @@
-resource "aws_iam_user" "terraform-user" {
+resource "aws_iam_user" "terraform_user" {
   name = "terraform_user"
 }
 
@@ -22,5 +22,5 @@ resource "aws_iam_policy" "terraform_policy" {
 
 resource "aws_iam_user_policy_attachment" "attach" {
   user   = aws_iam_user.terraform_user.name
-  policy = aws_iam_policy.terraform_policy.arn
+  policy_arn = aws_iam_policy.terraform_policy.arn
 }
