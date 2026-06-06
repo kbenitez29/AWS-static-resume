@@ -66,9 +66,6 @@ The website files are separated from the infrastructure code to keep the project
 
 ![Projects](screenshots/projects.png)
 
-### Architecture
-
-![Architecture](screenshots/arch.png)
 
 ---
 
