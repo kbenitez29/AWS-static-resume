@@ -7,7 +7,7 @@ The goal of this project was to gain hands-on experience with cloud infrastructu
 ---
 ## Live Demo
 
-https://portfolio.kevin-benitez-t.workers.dev/
+https://vins-portfolio.pages.dev
 
 ---
 ## Current Architecture 
