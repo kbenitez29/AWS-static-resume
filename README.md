@@ -40,7 +40,7 @@ CloudFront acts as the public entry point and securely accesses the bucket throu
 
 ---
 
-## AWS Version (Learning Project)
+## AWS Version (Previously)
 
 * Static website hosting
 * HTTPS delivery through CloudFront
