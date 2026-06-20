@@ -62,13 +62,13 @@ section{padding:3.5rem 0;border-bottom:1px solid var(--border)}
 .exp-tag{display:inline-block;font-size:10px;padding:0.15rem 0.5rem;border-radius:3px;background:rgba(0,217,163,0.08);border:1px solid rgba(0,217,163,0.2);color:var(--accent);margin-top:0.6rem;margin-right:0.3rem}
 .projects-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
 @media(max-width:600px){.projects-grid{grid-template-columns:1fr}}
-.project-card{background:var(--bg2);border:1px solid var(--border);border-radius:6px;padding:1.25rem;transition:border-color 0.2s,transform 0.2s;position:relative;overflow:hidden;text-decoration:none;display:block;color:inherit}
+.project-card{background:var(--bg2);border:1px solid var(--border);border-radius:6px;padding:1.25rem;transition:border-color 0.2s,transform 0.2s;position:relative;overflow:hidden;text-decoration:none;display:flex;flex-direction:column;color:inherit;height:100%}
 .project-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--accent2));opacity:0;transition:opacity 0.2s}
 .project-card:hover{border-color:var(--border2);transform:translateY(-2px)}
 .project-card:hover::before{opacity:1}
 .project-title{font-family:var(--sans);font-size:14px;font-weight:700;margin-bottom:0.5rem;color:var(--text)}
-.project-desc{font-size:12px;color:var(--muted);line-height:1.7;margin-bottom:1rem}
-.project-tags{display:flex;flex-wrap:wrap;gap:0.4rem}
+.project-desc{font-size:12px;color:var(--muted);line-height:1.7;margin-bottom:1rem;flex:1}
+.project-tags{display:flex;flex-wrap:wrap;gap:0.4rem;margin-top:auto}
 .project-tag{font-size:10px;font-weight:500;letter-spacing:0.05em;padding:0.2rem 0.55rem;background:rgba(255,255,255,0.04);border:1px solid var(--border2);border-radius:3px;color:var(--muted)}
 .edu-card{background:var(--bg2);border:1px solid var(--border);border-radius:6px;padding:1.25rem 1.5rem;display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:0.5rem}
 .edu-degree{font-family:var(--sans);font-size:15px;font-weight:700}
@@ -220,8 +220,8 @@ footer{padding:2.5rem 0;display:flex;justify-content:space-between;align-items:c
       </a>
 
       <a class="project-card" href="https://github.com/kbenitez29/Monitoring-Lab" target="_blank">
-        <div class="project-title">Monitoring Lab · K3s</div>
-        <p class="project-desc">Self-hosted observability lab on Kubernetes — Prometheus + Grafana stack, NGINX Ingress, liveness/readiness probes with self-healing, rolling updates and rollbacks, all wired together with Ansible.</p>
+        <div class="project-title" style="text-align: center;">Monitoring Lab</div>
+        <p class="project-desc">Self-hosted observability lab on K3s, Prometheus + Grafana for the metrics, NGINX Ingress for traffic, Ansible so I didn't have to type the same kubectl command for the 50th time.</p>
         <div class="project-tags">
           <span class="project-tag">Kubernetes</span><span class="project-tag">Prometheus</span>
           <span class="project-tag">Grafana</span><span class="project-tag">Ansible</span>
@@ -283,7 +283,7 @@ footer{padding:2.5rem 0;display:flex;justify-content:space-between;align-items:c
       <div class="cert-divider"></div>
       <div class="cert-info">
         <div class="cert-info-title">AWS Certified Solutions Architect – Associate</div>
-        <div class="cert-info-sub">Amazon Web Services · Issued Mar 2026 · Valid until Mar 2030</div>
+        <div class="cert-info-sub">Amazon Web Services · Issued Mar 2026 · Valid until Mar 2029</div>
         <a class="cert-verify" href="https://www.credly.com/badges/21e5c34e-ebf4-4e5c-9533-5101f0924168" target="_blank">↗ Verify on Credly</a>
       </div>
     </div>
