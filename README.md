@@ -60,7 +60,7 @@ CloudFront acts as the public entry point and securely accesses the bucket throu
 
 ### Projects Section
 
-![Projects](screenshots/projects.png)
+![Projects](screenshots/image.png)
 
 
 ---
